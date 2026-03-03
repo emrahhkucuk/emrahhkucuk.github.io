@@ -1,44 +1,48 @@
-# vCard - Personal portfolio
+# Enes Berke Karaoğlan – Kişisel Web Sitesi
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+Modern, estetik ve profesyonel bir kişisel portföy / profil sayfası.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+## Özellikler
 
-## Demo
+- **Modern arayüz**: Karanlık tema, cam efekti (glassmorphism) ve gradient vurgular
+- **Tek sayfa tasarım**: Hakkımda, Deneyim & Eğitim, Yetenekler, Projeler, Blog ve İletişim bölümleri
+- **Tam responsive**: Telefon, tablet ve masaüstü cihazlarda uyumlu
+- **Kolay güncelleme**: Tüm içerik doğrudan `index.html` içerisinden düzenlenebilir
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+## Kurulum ve Çalıştırma
 
-## Prerequisites
+Bu proje statik bir web sayfasıdır. Aşağıdaki yöntemlerden biriyle görüntüleyebilirsiniz:
 
-Before you begin, ensure you have met the following requirements:
+### 1. Doğrudan tarayıcıda açma
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+1. Bu klasörü bilgisayarınıza indirin veya kopyalayın.
+2. `index.html` dosyasını çift tıklayarak tarayıcıda açın.
 
-## Installing vCard
+### 2. Basit bir yerel sunucu ile (önerilen)
 
-To install **vCard**, follow these steps:
-
-Linux and macOS:
+Makinenizde Node.js kuruluysa proje dizininde:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+npm install
+npm run start
 ```
 
-Windows:
+Ardından tarayıcınızda `http://localhost:3000` veya `serve` çıktısında belirtilen URL'yi açın.
 
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+## Yapı
 
-## Contact
+- `index.html` – Tüm sayfa yapısı ve içerik (Tailwind CDN ile stil verilmiş)
+- `package.json` – Basit bir geliştirme sunucusu çalıştırmak için script tanımları
 
-If you want to contact me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+## İçeriği Özelleştirme
 
-## License
+- Kişisel metinler, başlıklar ve oranlar için `index.html` dosyasındaki ilgili bölümleri güncelleyebilirsiniz.
+- Yeni projeler, sertifikalar veya blog yazıları için ilgili kartları kopyalayıp içeriklerini değiştirmeniz yeterlidir.
 
-MIT
+## İletişim
+
+Herhangi bir geliştirme, entegrasyon veya tasarım güncellemesi fikri için:
+
+- E-posta: `enes.1berke@gmail.com`
+- Web: `https://enesberke.com`
+
