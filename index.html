@@ -100,6 +100,33 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Header: active nav link */
+    header .nav-link.active {
+      color: rgb(226 232 240);
+      background: rgba(51, 65, 85, 0.5);
+    }
+
+    /* Full-width modern header */
+    .header-bar {
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.92) 0%, rgba(2, 6, 23, 0.78) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+      box-shadow:
+        0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+        0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+    .header-bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.25) 40%, rgba(129, 140, 248, 0.2) 60%, transparent 100%);
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -115,49 +142,40 @@
     </div>
   </div>
 
-  <header
-    class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl supports-[backdrop-filter]:bg-slate-950/60">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
-      <div class="flex items-center gap-3">
-        <div
-          class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 via-blue-500 to-purple-500 p-[1.5px] shadow-lg shadow-sky-500/40">
-          <div class="h-full w-full overflow-hidden rounded-full bg-slate-900">
-            <img src="./görsel/ebk.jpeg" alt="Enes Berke Karaoğlan" class="h-full w-full object-cover object-center"
-              loading="lazy" />
-          </div>
+  <header class="header-bar sticky top-0 z-40 w-full relative">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8">
+      <a href="#" class="flex items-center gap-3 shrink-0">
+        <div class="relative h-10 w-10 overflow-hidden rounded-full ring-1 ring-slate-600/50 ring-offset-2 ring-offset-slate-950">
+          <img src="./görsel/ebk.jpeg" alt="Enes Berke Karaoğlan" class="h-full w-full object-cover" loading="lazy" />
         </div>
-        <div class="leading-tight">
-          <p class="text-sm font-semibold tracking-tight text-slate-50">
-            Enes Berke Karaoğlan
-          </p>
-          <p class="text-xs text-slate-400">
-            Data Scientist & Software Developer
-          </p>
+        <div class="hidden leading-tight sm:block">
+          <span class="text-sm font-semibold tracking-tight text-slate-50 whitespace-nowrap">Enes Berke Karaoğlan</span>
+          <span class="block text-[0.65rem] font-medium uppercase tracking-widest text-slate-500 whitespace-nowrap">Data Scientist & Founder</span>
         </div>
-      </div>
+      </a>
 
-      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-300 md:flex">
-        <a href="#about" class="hover:text-sky-400 transition-colors">Hakkımda</a>
-        <a href="#experience" class="hover:text-sky-400 transition-colors">Deneyim</a>
-        <a href="#certificates" class="hover:text-sky-400 transition-colors">Sertifikalar</a>
-        <a href="#skills" class="hover:text-sky-400 transition-colors">Yetenekler</a>
-        <a href="#projects" class="hover:text-sky-400 transition-colors">Projeler</a>
-        <a href="#blog" class="hover:text-sky-400 transition-colors">Blog</a>
-        <a href="#contact" class="hover:text-sky-400 transition-colors">İletişim</a>
+      <nav class="hidden lg:flex items-center gap-0.5 flex-nowrap justify-center shrink-0" role="navigation">
+        <a href="#about" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Hakkımda</a>
+        <a href="#experience" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Deneyim</a>
+        <a href="#certificates" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Sertifikalar</a>
+        <a href="#skills" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Yetenekler</a>
+        <a href="#projects" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Projeler</a>
+        <a href="#mobile-apps" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Mobil Uygulamalarım</a>
+        <a href="#blog" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">Blog</a>
+        <a href="#contact" class="nav-link whitespace-nowrap shrink-0 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium text-slate-400 hover:bg-slate-800/50 hover:text-slate-100 transition-colors">İletişim</a>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 shrink-0">
         <a href="mailto:enes.1berke@gmail.com"
-          class="hidden rounded-full border border-slate-700/80 bg-slate-900/70 px-3.5 py-1.5 text-xs font-medium text-slate-100 shadow-sm hover:border-sky-500/70 hover:text-sky-100 hover:shadow-sky-500/30 md:inline-flex">
+          class="hidden text-slate-400 hover:text-slate-100 transition-colors lg:inline-flex items-center gap-2 rounded-lg px-3.5 py-2.5 text-[0.8125rem] font-medium whitespace-nowrap border border-slate-700/50 hover:border-slate-600/60">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" /><path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" /></svg>
           E-posta
         </a>
         <a href="Enes%20Berke%20Karao%C4%9Flan%20CV.pdf" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-sky-500 via-blue-500 to-purple-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg shadow-sky-500/50">
+          class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-500/20 to-blue-500/20 px-4 py-2.5 text-[0.8125rem] font-semibold text-sky-200 ring-1 ring-sky-500/40 hover:from-sky-500/30 hover:to-blue-500/30 hover:text-sky-100 hover:ring-sky-500/50 transition-all whitespace-nowrap">
           <span>CV / Portföy</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5 4a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 11-2 0V6.414l-9.293 9.293a1 1 0 01-1.414-1.414L12.586 5H6a1 1 0 01-1-1z"
-              clip-rule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-sky-400/90" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clip-rule="evenodd" />
           </svg>
         </a>
       </div>
@@ -254,7 +272,7 @@
                   Rol
                 </dt>
                 <dd class="mt-1 font-medium text-slate-50">
-                  CEO & Founder
+                  Founder
                 </dd>
                 <p class="text-[0.7rem] text-slate-400">
                   Veri Bilimi Topluluğu · Dijital Gelecek Akademisi · Data Science Türkiye
@@ -458,10 +476,10 @@
               <div class="space-y-1 text-sm">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                   <p class="font-medium text-slate-50">Dijital Gelecek Akademisi</p>
-                  <p class="text-xs text-slate-400">Ağu 2024 — Haz 2025</p>
+                  <p class="text-xs text-slate-400">Ağu 2024 — Devam</p>
                 </div>
                 <p class="text-xs font-medium text-purple-200">
-                  Kurucu · Eğitim Girişimi
+                  Kurucu & CEO · Eğitim Girişimi
                 </p>
                 <p class="text-xs text-slate-300">
                   Türkiye genelinde eğitim eşitsizliğini azaltmayı hedefleyen, ücretsiz ve çevrimiçi eğitimler sunan
@@ -476,7 +494,7 @@
               <div class="space-y-1 text-sm">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                   <p class="font-medium text-slate-50">Bursa Uludağ Üniversitesi</p>
-                  <p class="text-xs text-slate-400">Kas 2024 — Haz 2025</p>
+                  <p class="text-xs text-slate-400">Kas 2024 — Devam</p>
                 </div>
                 <p class="text-xs font-medium text-amber-200">
                   Student Assistant
@@ -867,6 +885,36 @@
       </div>
     </section>
 
+    <!-- Mobil Uygulamalarım -->
+    <section id="mobile-apps" class="section-anchor mt-16 fade-in-up space-y-4 lg:mt-20">
+      <div>
+        <h2 class="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl">
+          Mobil Uygulamalarım
+        </h2>
+        <p class="mt-1 text-xs text-slate-400 sm:text-sm">
+          Şu an geliştirdiğim mobil uygulamalar.
+        </p>
+      </div>
+
+      <div class="glass rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/70 max-w-md">
+        <div class="flex items-center gap-3">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-800/80">
+            <img src="./görsel/annemyanimdalogo.png" alt="Annem Yanımda" class="h-10 w-10 object-contain" loading="lazy" />
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="text-sm font-semibold text-slate-50">Annem Yanımda</h3>
+            <p class="text-xs text-slate-400">Geliştirme aşamasında</p>
+          </div>
+        </div>
+        <a href="yasal-metinler.html" class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-sky-300 hover:text-sky-200">
+          Yasal metinler
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.06l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
     <!-- Blog -->
     <section id="blog" class="section-anchor mt-16 fade-in-up space-y-6 lg:mt-20">
       <div class="flex flex-wrap items-center justify-between gap-4">
@@ -982,6 +1030,16 @@
   <script>
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active nav link from hash
+    function setActiveNav() {
+      const hash = window.location.hash || '#about';
+      document.querySelectorAll('header .nav-link').forEach((a) => {
+        a.classList.toggle('active', a.getAttribute('href') === hash);
+      });
+    }
+    window.addEventListener('hashchange', setActiveNav);
+    window.addEventListener('load', setActiveNav);
 
     // Reveal on scroll
     const observer = new IntersectionObserver(
