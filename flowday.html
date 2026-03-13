@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowDay · Hakkında & Yasal Metinler</title>
+  <meta name="description" content="FlowDay üretkenlik uygulaması hakkında bilgi, özellikler, gizlilik ve yasal metinler." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            flowday: {
+              bg: '#0F1A2C',
+              card: '#1E2B3F',
+              accent: '#7EC1FF',
+              text: '#D0D0D0',
+              muted: '#8F9BA8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { color-scheme: dark; }
+    .flowday-page { background-color: #0F1A2C; color: #D0D0D0; }
+    .flowday-page .flowday-bg {
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 43, 63, 0.4) 0%, transparent 50%),
+                  radial-gradient(ellipse 60% 40% at 50% 100%, rgba(15, 26, 44, 0.6) 0%, #0F1A2C 70%);
+    }
+    .flowday-page .flowday-card {
+      background-color: #1E2B3F;
+      border: 1px solid rgba(126, 193, 255, 0.12);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+    .flowday-page .flowday-heading { color: #7EC1FF; }
+    .flowday-page .flowday-text { color: #D0D0D0; }
+    .flowday-page .flowday-muted { color: #8F9BA8; }
+    .flowday-page ::-webkit-scrollbar { width: 8px; }
+    .flowday-page ::-webkit-scrollbar-track { background: #0F1A2C; }
+    .flowday-page ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, rgba(126, 193, 255, 0.4), rgba(148, 163, 184, 0.3));
+      border-radius: 999px;
+    }
+    .app-page section { scroll-margin-top: 5rem; }
+    .app-tab-panel { display: none; }
+    .app-tab-panel.is-active { display: block; }
+    .flowday-page .app-tabs { display: inline-flex; padding: 4px; border-radius: 12px; background: rgba(30, 43, 63, 0.8); border: 1px solid rgba(126, 193, 255, 0.2); }
+    .flowday-page .app-tab { padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 500; transition: background 0.2s, color 0.2s; color: #8F9BA8; background: transparent; }
+    .flowday-page .app-tab[aria-selected="false"]:hover { color: #D0D0D0; background: rgba(126, 193, 255, 0.08); }
+    .flowday-page .app-tab[aria-selected="true"] { color: #E0F2FE; background: rgba(126, 193, 255, 0.2); }
+  </style>
+</head>
+
+<body class="flowday-page antialiased">
+  <div class="fixed inset-0 -z-10 overflow-hidden flowday-bg"></div>
+
+  <header class="sticky top-0 z-40 border-b border-[rgba(126,193,255,0.12)] bg-[#0F1A2C]/90 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-3 lg:px-6">
+      <a href="index.html#mobile-apps" class="inline-flex items-center gap-2 text-sm font-medium text-[#D0D0D0] hover:text-[#7EC1FF] transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+        </svg>
+        Mobil Uygulamalarım
+      </a>
+    </div>
+  </header>
+
+  <main class="app-page mx-auto max-w-3xl px-4 py-10 lg:px-6 lg:py-14">
+    <!-- Hero + Tab bar -->
+    <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+<div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#f3f4fb] ring-1 ring-[rgba(126,193,255,0.15)]">
+        <img src="./görsel/flowday_logo.png" alt="FlowDay" class="h-11 w-11 object-contain" />
+        </div>
+        <h1 class="text-xl font-semibold tracking-tight text-[#D0D0D0] sm:text-2xl">FlowDay</h1>
+      </div>
+      <div role="tablist" aria-label="İçerik seçin">
+        <div class="app-tabs">
+          <button type="button" role="tab" id="tab-hakkinda" aria-selected="true" aria-controls="panel-hakkinda" class="app-tab">Hakkında</button>
+          <button type="button" role="tab" id="tab-yasal" aria-selected="false" aria-controls="panel-yasal" class="app-tab">Yasal metinler</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hakkında panel -->
+    <section id="panel-hakkinda" role="tabpanel" aria-labelledby="tab-hakkinda" class="app-tab-panel is-active mb-16">
+      <div class="flowday-card rounded-2xl p-6 md:p-8">
+        <h2 class="flowday-heading text-sm font-semibold uppercase tracking-widest">Hakkında</h2>
+        <p class="flowday-text mt-4 text-[0.9375rem] leading-relaxed">
+          Flowday, odaklanma ve günlük işlerinizi tek yerden yönetmenizi sağlayan bir üretkenlik uygulamasıdır.
+        </p>
+
+        <h3 class="flowday-heading mt-8 text-xs font-semibold uppercase tracking-wider">Pomodoro zamanlayıcı</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Özelleştirilebilir odak, kısa mola ve uzun mola süreleri</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Günlük hedef ve uzun mola aralığı ayarı</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Seans veya mola bitiminde otomatik devam (isteğe bağlı)</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Seans sonunda bildirim ve ekranı açık tutma seçeneği</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Görevlere bağlı pomodoro sayacı</li>
+        </ul>
+
+        <h3 class="flowday-heading mt-6 text-xs font-semibold uppercase tracking-wider">Görevler</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Görev ekleme, düzenleme ve silme</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Öncelik, son tarih ve tahmini pomodoro sayısı</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Bugün, gecikmiş ve yaklaşan görev filtreleri</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Tamamlanan pomodoro sayısı takibi</li>
+        </ul>
+
+        <h3 class="flowday-heading mt-6 text-xs font-semibold uppercase tracking-wider">Kütüphane</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Kitap, makale, belge, video ve podcast kaydı</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Okuma / izleme durumu ve ilerleme takibi (okunacak, okuyor, tamamlandı, duraklatıldı)</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Sayfa veya ilerleme yüzdesi girişi</li>
+        </ul>
+
+        <h3 class="flowday-heading mt-6 text-xs font-semibold uppercase tracking-wider">Notlar</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Başlık ve içerikle hızlı not alma</li>
+        </ul>
+
+        <h3 class="flowday-heading mt-6 text-xs font-semibold uppercase tracking-wider">İstatistikler</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Günlük ve haftalık odak süresi grafiği</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Günlük hedef ilerlemesi ve seri (streak)</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Toplam pomodoro, görev, kütüphane ve not özeti</li>
+        </ul>
+
+        <h3 class="flowday-heading mt-6 text-xs font-semibold uppercase tracking-wider">Ayarlar</h3>
+        <ul class="flowday-text mt-3 space-y-2 text-[0.9375rem]">
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Açık, koyu ve sistem teması</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Tüm zamanlayıcı ve otomasyon ayarları tek ekranda</li>
+          <li class="flex gap-2"><span class="text-[#7EC1FF]">•</span> Veri özeti ve yasal metinlere erişim</li>
+        </ul>
+
+        <div class="mt-8 rounded-xl border border-[rgba(126,193,255,0.2)] bg-[rgba(15,26,44,0.5)] p-4">
+          <h4 class="flowday-heading text-xs font-semibold uppercase tracking-wider">Gizlilik</h4>
+          <p class="flowday-text mt-2 text-[0.9375rem] leading-relaxed">
+            Sunucu veya bulut kullanılmaz; tüm veriler cihazınızda saklanır. Hesap veya giriş gerekmez.
+          </p>
+        </div>
+
+        <p class="flowday-muted mt-6 text-center text-[0.9375rem] italic">
+          "Odaklan. Takip et. Başar." — Flowday ile günlük hedeflerinize daha disiplinli ulaşın.
+        </p>
+      </div>
+    </section>
+
+    <!-- Yasal metinler panel -->
+    <section id="panel-yasal" role="tabpanel" aria-labelledby="tab-yasal" class="app-tab-panel mb-16" hidden>
+      <div class="flowday-card rounded-2xl p-6 md:p-8">
+        <h2 class="flowday-heading text-sm font-semibold uppercase tracking-widest">Yasal metinler</h2>
+        <p class="flowday-muted mt-1 text-xs">FlowDay uygulaması</p>
+
+        <div class="flowday-text mt-6 space-y-6 text-[0.9375rem]">
+          <div class="border-l-2 border-[rgba(126,193,255,0.35)] pl-4">
+            <h3 class="font-semibold text-[#7EC1FF]">Veri ve Gizlilik</h3>
+            <p class="mt-1.5 leading-relaxed text-[#D0D0D0]">
+              Flowday veritabanı veya sunucu kullanmaz. Tüm verileriniz (pomodoro seansları, görevler, notlar, kütüphane kayıtları ve ayarlar) yalnızca cihazınızda, yerel depolama alanında saklanır. Veriler sunucuya veya buluta gönderilmez; üçüncü taraflarla paylaşılmaz. Hesap veya giriş gerekmez; veriler tamamen cihaza özeldir. Yedekleme, cihazınızın yedekleme ayarlarına bağlıdır.
+            </p>
+          </div>
+          <div class="border-l-2 border-[rgba(126,193,255,0.35)] pl-4">
+            <h3 class="font-semibold text-[#7EC1FF]">Kullanım Koşulları</h3>
+            <p class="mt-1.5 leading-relaxed text-[#D0D0D0]">
+              Flowday "olduğu gibi" sunulmaktadır; üretkenlik ve zaman yönetimi için destek amaçlıdır, tıbbi veya hukuki tavsiye niteliği taşımaz. Uygulama kullanımından doğan zararlardan geliştirici sorumlu tutulamaz. İçerik ve özellikler önceden haber verilmeksizin güncellenebilir. Kişisel veriler 6698 sayılı KVKK kapsamında yalnızca cihazınızda işlenir; veri işleme faaliyeti sunucu tarafında gerçekleşmez.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="flowday-muted mt-16 border-t border-[rgba(126,193,255,0.12)] bg-[#0F1A2C]">
+    <div class="mx-auto max-w-3xl px-4 py-4 text-center text-[0.68rem] lg:px-6">
+      <p>© <span id="year"></span> Enes Berke Karaoğlan. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var tabs = document.querySelectorAll('[role="tab"]');
+      var panels = document.querySelectorAll('[role="tabpanel"]');
+      function setActiveTab(activeId) {
+        var isYasal = activeId === 'tab-yasal';
+        tabs.forEach(function (t) { t.setAttribute('aria-selected', t.id === activeId); });
+        panels.forEach(function (p) {
+          var show = p.id === 'panel-yasal' ? isYasal : !isYasal;
+          p.classList.toggle('is-active', show);
+          p.hidden = !show;
+        });
+        history.replaceState(null, '', '#' + (isYasal ? 'yasal-metinler' : 'hakkinda'));
+      }
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () { setActiveTab(this.id); });
+        tab.addEventListener('keydown', function (e) {
+          var idx = Array.prototype.indexOf.call(tabs, this);
+          if (e.key === 'ArrowRight' && idx < tabs.length - 1) { tabs[idx + 1].focus(); e.preventDefault(); }
+          if (e.key === 'ArrowLeft' && idx > 0) { tabs[idx - 1].focus(); e.preventDefault(); }
+        });
+      });
+      if (window.location.hash === '#yasal-metinler') setActiveTab('tab-yasal');
+    })();
+  </script>
+</body>
+
+</html>
