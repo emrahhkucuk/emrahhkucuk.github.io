@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newbie · Gizlilik Politikası & Hakkında</title>
+  <meta name="description" content="Newbie — Yeni Üyeler İçin Gizlilik Politikası ve uygulama hakkında bilgiler." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --bg: #040810;
+      --surface: #090f1e;
+      --surface-2: #0e1627;
+      --border: rgba(255,255,255,0.065);
+      --border-m: rgba(255,255,255,0.11);
+      --text: #eef2f8;
+      --muted: #8899b0;
+      --faint: #3d4f66;
+      --accent: #9BB4D0;
+      --accent-soft: rgba(155,180,208,0.1);
+      --accent-border: rgba(155,180,208,0.2);
+      --icon-bg: #131922;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 9999px; }
+
+    .bg-blob {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 0%, rgba(155,180,208,0.06), transparent 60%),
+        radial-gradient(ellipse 50% 60% at 20% 100%, rgba(19,25,34,0.5), transparent 60%);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(4,8,16,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-hero {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--icon-bg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .app-icon img { width: 58px; height: 58px; object-fit: contain; }
+    .app-title {
+      font-size: 1.625rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+    .app-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .tab-bar {
+      display: inline-flex;
+      padding: 3px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      padding: 8px 20px;
+      border-radius: 9px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn[aria-selected="true"] {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border-m);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 0 0 20px;
+    }
+
+    .notice {
+      padding: 16px 18px;
+      border-radius: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .notice-privacy {
+      background: rgba(155,180,208,0.05);
+      border: 1px solid rgba(155,180,208,0.14);
+    }
+    .notice-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+    .notice p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    .legal-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .legal-item:first-child { padding-top: 0; }
+    .legal-num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .legal-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+    .legal-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .legal-doc-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0 0 8px;
+      line-height: 1.25;
+    }
+    .legal-doc-updated {
+      font-size: 0.8125rem;
+      color: var(--faint);
+      margin: 0 0 24px;
+    }
+    .legal-prose h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 10px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .legal-prose h3:first-of-type { margin-top: 0; }
+    .legal-prose h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin: 20px 0 8px;
+    }
+    .legal-prose p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+    .legal-prose ul {
+      margin: 0 0 16px;
+      padding-left: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .legal-prose li { margin-bottom: 8px; }
+    .legal-prose li:last-child { margin-bottom: 0; }
+    .legal-prose a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .legal-prose a:hover { color: #c5d4e8; }
+
+    footer { border-top: 1px solid var(--border); position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    footer p { font-size: 0.8rem; color: var(--faint); margin: 0; }
+  </style>
+</head>
+
+<body>
+  <div class="bg-blob"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html#mobile-apps" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+        Mobil Uygulamalar
+      </a>
+      <span style="font-size:0.8125rem; font-weight:600; color:var(--muted);">Newbie</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="app-hero">
+      <div class="app-icon">
+        <img src="./görsel/newbie-instagram-logo.png" alt="Newbie" loading="lazy" />
+      </div>
+      <div>
+        <h1 class="app-title">Newbie</h1>
+        <p class="app-subtitle">Mobil uygulama · Topluluk ve içerik deneyimi</p>
+      </div>
+    </div>
+
+    <div role="tablist" aria-label="İçerik seçin">
+      <div class="tab-bar">
+        <button type="button" role="tab" id="tab-hakkinda" aria-selected="true" aria-controls="panel-hakkinda" class="tab-btn">Hakkında</button>
+        <button type="button" role="tab" id="tab-yasal" aria-selected="false" aria-controls="panel-yasal" class="tab-btn">Gizlilik Politikası</button>
+      </div>
+    </div>
+
+    <div id="panel-hakkinda" role="tabpanel" aria-labelledby="tab-hakkinda" class="tab-panel active">
+      <div class="card">
+        <div class="card-title">Uygulama Hakkında</div>
+        <p style="font-size:0.9375rem; color:#cbd5e1; line-height:1.75; margin:0;">
+          Newbie, kullanıcıların içerik ve etkileşimi tek bir mobil deneyimde bir araya getirmesini hedefleyen uygulamadır. Özellik seti ve içerikler sürümlerle güncellenebilir; güncel işleyiş için uygulama içi bilgilendirmelere bakınız.
+        </p>
+      </div>
+
+      <div class="notice notice-privacy">
+        <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div>
+          <div style="font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:5px;">Gizlilik</div>
+          <p>Kişisel verilerinizin işlenmesi ve saklanması, uygulamanın güncel <strong style="color:var(--text);">gizlilik politikası</strong> ile düzenlenir. Ayrıntılar için <strong style="color:var(--text);">Gizlilik Politikası</strong> sekmesine geçebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-yasal" role="tabpanel" aria-labelledby="tab-yasal" class="tab-panel">
+      <div class="card">
+        <div class="card-title">Yasal metin</div>
+        <h2 class="legal-doc-title">Yeni Üyeler İçin Gizlilik Politikası</h2>
+        <p class="legal-doc-updated">Son güncelleme: 18 Mart 2026</p>
+
+        <div class="legal-prose">
+
+          <h3>Gizlilik Politikası</h3>
+          <p>Bu Gizlilik Politikası, Hizmeti kullandığınızda bilgilerinizin toplanması, kullanımı ve ifşasına ilişkin politikalarımızı ve prosedürlerimizi açıklamaktadır ve size gizlilik haklarınız ve yasanın sizi nasıl koruduğu hakkında bilgi vermektedir.</p>
+          <p>Kişisel verilerinizi hizmeti sağlamak ve iyileştirmek için kullanıyoruz. Hizmeti kullanarak, bu Gizlilik Politikasına uygun olarak bilgilerin toplanmasına ve kullanılmasına onay vermiş olursunuz. Bu Gizlilik Politikası, TermsFeed Gizlilik Politikası Oluşturucu yardımıyla oluşturulmuştur.</p>
+
+          <h3>Yorumlama ve Tanımlar</h3>
+          <h4>Tercüme</h4>
+          <p>Baş harfleri büyük olan kelimelerin anlamları aşağıdaki koşullar altında tanımlanmıştır. Aşağıdaki tanımlar, tekil veya çoğul halde kullanılmalarına bakılmaksızın aynı anlama gelir.</p>
+
+          <h4>Tanımlar</h4>
+          <p>Bu Gizlilik Politikası&apos;nın amaçları doğrultusunda:</p>
+          <p><strong>Hesap</strong>, Hizmetimize veya Hizmetimizin belirli bölümlerine erişmeniz için sizin için oluşturulan benzersiz bir hesap anlamına gelir.</p>
+          <p><strong>İştirak</strong>, bir tarafı kontrol eden, bir tarafça kontrol edilen veya bir tarafla ortak kontrol altında olan bir kuruluşu ifade eder; burada &quot;kontrol&quot;, yönetim kurulu üyelerinin veya diğer yönetim yetkililerinin seçimi için oy kullanma hakkına sahip hisselerin, öz sermaye paylarının veya diğer menkul kıymetlerin %50 veya daha fazlasına sahip olmayı ifade eder.</p>
+          <p><strong>Uygulama</strong>, Şirket tarafından sağlanan Newbie adlı yazılım programını ifade eder.</p>
+          <p><strong>Şirket</strong> (bu Gizlilik Politikasında &quot;Şirket&quot;, &quot;Biz&quot;, &quot;Bize&quot; veya &quot;Bizim&quot; olarak anılacaktır) Newbie&apos;yi ifade eder.</p>
+          <p><strong>Çerezler</strong>, bir web sitesi tarafından bilgisayarınıza, mobil cihazınıza veya başka herhangi bir cihazınıza yerleştirilen, birçok kullanım amacı arasında o web sitesindeki tarama geçmişinizin ayrıntılarını içeren küçük dosyalardır.</p>
+          <p><strong>Ülke</strong> olarak Türkiye&apos;yi kastediyorum.</p>
+          <p><strong>Cihaz</strong>, bilgisayar, cep telefonu veya dijital tablet gibi Hizmete erişebilen herhangi bir cihaz anlamına gelir.</p>
+          <p><strong>Kişisel Veriler</strong> (veya &quot;Kişisel Bilgiler&quot;), tanımlanmış veya tanımlanabilir bir bireyle ilgili her türlü bilgidir.</p>
+          <p>Kanun farklı bir terim kullanmadığı sürece, &quot;Kişisel Veri&quot; ve &quot;Kişisel Bilgi&quot; terimlerini birbirinin yerine kullanıyoruz.</p>
+          <p><strong>Hizmet</strong>, Uygulamayı veya Web Sitesini veya her ikisini birden ifade eder.</p>
+          <p><strong>Hizmet Sağlayıcı</strong>, Şirket adına verileri işleyen herhangi bir gerçek veya tüzel kişiyi ifade eder. Bu, Hizmeti kolaylaştırmak, Şirket adına Hizmeti sağlamak, Hizmetle ilgili hizmetleri gerçekleştirmek veya Şirketin Hizmetin nasıl kullanıldığını analiz etmesine yardımcı olmak amacıyla Şirket tarafından istihdam edilen üçüncü taraf şirketleri veya bireyleri ifade eder.</p>
+          <p><strong>Kullanım Verileri</strong>, Hizmetin kullanımıyla veya Hizmet altyapısının kendisinden otomatik olarak toplanan verileri ifade eder (örneğin, bir sayfa ziyaretinin süresi).</p>
+          <p><strong>Web sitesi</strong>, <a href="http://www.getnewbie.com" target="_blank" rel="noopener">http://www.getnewbie.com</a> adresinden erişilebilen Newbie&apos;ye atıfta bulunmaktadır.</p>
+          <p><strong>Siz</strong>, Hizmete erişen veya Hizmeti kullanan bireyi veya söz konusu bireyin adına Hizmete erişen veya Hizmeti kullanan şirketi veya diğer tüzel kişiyi ifade eder.</p>
+
+          <h3>Kişisel Verilerinizin Toplanması ve Kullanımı</h3>
+          <h4>Toplanan Veri Türleri</h4>
+          <h4>Kişisel Veriler</h4>
+          <p>Hizmetimizi kullanırken, Sizinle iletişime geçmek veya Sizi tanımlamak için kullanılabilecek bazı kişisel olarak tanımlanabilir bilgileri bize sağlamanızı isteyebiliriz. Kişisel olarak tanımlanabilir bilgiler şunları içerebilir, ancak bunlarla sınırlı değildir:</p>
+          <ul>
+            <li>E-posta adresi</li>
+            <li>Adı ve soyadı</li>
+            <li>Telefon numarası</li>
+            <li>Adres, Eyalet, İl, Posta kodu, Şehir</li>
+          </ul>
+
+          <h4>Kullanım Verileri</h4>
+          <p>Hizmeti kullanırken kullanım verileri otomatik olarak toplanır.</p>
+          <p>Kullanım Verileri, Cihazınızın İnternet Protokol adresi (örneğin IP adresi), tarayıcı türü, tarayıcı sürümü, Hizmetimizin ziyaret ettiğiniz sayfaları, ziyaretinizin tarihi ve saati, bu sayfalarda geçirilen süre, benzersiz cihaz tanımlayıcıları ve diğer teşhis verileri gibi bilgileri içerebilir.</p>
+          <p>Hizmete bir mobil cihaz aracılığıyla eriştiğinizde, kullandığınız mobil cihaz türü, mobil cihazınızın benzersiz kimliği, mobil cihazınızın IP adresi, mobil işletim sisteminiz, kullandığınız mobil internet tarayıcısının türü, benzersiz cihaz tanımlayıcıları ve diğer teşhis verileri dahil ancak bunlarla sınırlı olmamak üzere belirli bilgileri otomatik olarak toplayabiliriz.</p>
+          <p>Ayrıca, Hizmetimizi ziyaret ettiğinizde veya Hizmetimize mobil cihaz aracılığıyla eriştiğinizde tarayıcınızın gönderdiği bilgileri de toplayabiliriz.</p>
+
+          <h3>İzleme Teknolojileri ve Çerezler</h3>
+          <p>Hizmetimizdeki faaliyetleri izlemek ve belirli bilgileri saklamak için Çerezler ve benzer izleme teknolojileri kullanıyoruz. Kullandığımız izleme teknolojileri arasında, bilgi toplamak ve izlemek, Hizmetimizi iyileştirmek ve analiz etmek için kullanılan işaretçiler, etiketler ve komut dosyaları yer almaktadır.</p>
+          <p><strong>Çerezler veya Tarayıcı Çerezleri.</strong> Çerez, cihazınıza yerleştirilen küçük bir dosyadır. Tarayıcınızı tüm çerezleri reddedecek veya bir çerez gönderildiğinde bildirimde bulunacak şekilde ayarlayabilirsiniz. Ancak, çerezleri kabul etmezseniz, hizmetimizin bazı bölümlerini kullanamayabilirsiniz.</p>
+          <p><strong>Web İşaretçileri.</strong> Hizmetimizin ve e-postalarımızın belirli bölümleri, Şirketin örneğin bu sayfaları ziyaret eden veya bir e-postayı açan kullanıcıları saymasına ve diğer ilgili web sitesi istatistikleri için olanak tanıyan web işaretçileri olarak bilinen küçük elektronik dosyalar içerebilir.</p>
+          <p>Çerezler &quot;Kalıcı&quot; veya &quot;Oturum&quot; çerezleri olabilir. Kalıcı çerezler çevrimdışı olduğunuzda kişisel bilgisayarınızda veya mobil cihazınızda kalırken, oturum çerezleri web tarayıcınızı kapattığınız anda silinir.</p>
+          <p>Kanunen gerekli olduğu durumlarda, temel olmayan çerezleri (analiz, reklam ve yeniden pazarlama çerezleri gibi) yalnızca sizin onayınızla kullanırız. Onayınızı istediğiniz zaman çerez tercihleri aracımızı (varsa) kullanarak veya tarayıcı/cihaz ayarlarınız aracılığıyla geri çekebilir veya değiştirebilirsiniz. Onayın geri çekilmesi, geri çekilmeden önce onaya dayalı olarak yapılan işlemenin yasallığını etkilemez.</p>
+          <p>Aşağıda belirtilen amaçlar doğrultusunda hem oturum çerezlerini hem de kalıcı çerezleri kullanıyoruz:</p>
+          <ul>
+            <li><strong>Gerekli / Temel Çerezler</strong> — Tür: Oturum Çerezleri — Yöneten: Biz — Amaç: Bu çerezler, web sitesi üzerinden sunulan hizmetlerden yararlanmanız ve bazı özelliklerini kullanabilmeniz için gereklidir.</li>
+            <li><strong>Çerez Politikası / Çerez Kabul Bildirimi</strong> — Tür: Kalıcı Çerezler — Yöneten: Biz — Amaç: Bu çerezler, kullanıcıların web sitesinde çerez kullanımını kabul edip etmediklerini belirler.</li>
+            <li><strong>İşlevsellik Çerezleri</strong> — Tür: Kalıcı Çerezler — Yöneten: Biz — Amaç: Bu çerezler, web sitesini kullanırken yaptığınız seçimleri hatırlamamızı sağlar.</li>
+          </ul>
+          <p>Kullandığımız çerezler ve çerezlerle ilgili tercihleriniz hakkında daha fazla bilgi için lütfen Çerez Politikamızı veya Gizlilik Politikamızın Çerezler bölümünü ziyaret edin.</p>
+
+          <h3>Kişisel Verilerinizin Kullanımı</h3>
+          <p>Şirket, Kişisel Verileri aşağıdaki amaçlar için kullanabilir:</p>
+          <ul>
+            <li>Hizmetimizi sağlamak ve sürdürmek, buna hizmetimizin kullanımını izlemek de dahildir.</li>
+            <li>Hesabınızı yönetmek için: Hizmetin kullanıcısı olarak kaydınızı yönetmek için.</li>
+            <li>Sözleşmenin yerine getirilmesi için: Hizmet aracılığıyla satın aldığınız ürünler veya hizmetler için.</li>
+            <li>Sizinle iletişime geçmek için: Güncellemeler veya bilgilendirici iletişimler hakkında.</li>
+            <li>Size haberler, özel teklifler ve genel bilgiler sunmak için (tercih etmediğiniz sürece).</li>
+            <li>Taleplerinizi yönetmek için.</li>
+            <li>İşletme devirleri için.</li>
+            <li>Diğer amaçlar için: veri analizi, kullanım trendleri, kampanya etkinliği ve deneyimin iyileştirilmesi.</li>
+          </ul>
+          <p>Kişisel verilerinizi aşağıdaki durumlarda paylaşabiliriz:</p>
+          <ul>
+            <li>Hizmet Sağlayıcılarla</li>
+            <li>İşletme devirleri için</li>
+            <li>İştiraklerimizle</li>
+            <li>İş ortaklarımızla</li>
+            <li>Diğer kullanıcılarla (hizmet herkese açık alanlar sunuyorsa)</li>
+            <li>Onayınızla</li>
+          </ul>
+
+          <h3>Kişisel Verilerinizin Saklanması</h3>
+          <p>Şirket, Kişisel Verilerinizi yalnızca bu Gizlilik Politikası&apos;nda belirtilen amaçlar için gerekli olduğu sürece saklayacaktır. Kişisel Verilerinizi, yasal yükümlülüklerimize uymak, anlaşmazlıkları çözmek ve yasal sözleşmelerimizi ve politikalarımızı uygulamak için gerekli olduğu ölçüde saklayacak ve kullanacağız.</p>
+          <p>Mümkün olan durumlarda, daha kısa saklama süreleri uyguluyor ve/veya verileri silerek, birleştirerek veya anonimleştirerek tanımlanabilirliği azaltıyoruz. Aksi belirtilmedikçe, aşağıdaki saklama süreleri azami sürelerdir (&quot;en fazla&quot;):</p>
+          <ul>
+            <li><strong>Kullanıcı Hesapları:</strong> Hesap ilişkinizin süresi boyunca ve hesap kapatıldıktan sonra 24 aya kadar.</li>
+            <li><strong>Destek talepleri ve yazışmalar:</strong> Talep kapatılma tarihinden itibaren 24 aya kadar.</li>
+            <li><strong>Sohbet kayıtları:</strong> Kalite güvencesi ve personel eğitimi amacıyla 24 aya kadar.</li>
+            <li><strong>Web sitesi analiz verileri:</strong> Toplanma tarihinden itibaren 24 aya kadar.</li>
+            <li><strong>Uygulama kullanım istatistikleri:</strong> 24 aya kadar.</li>
+            <li><strong>Sunucu kayıtları:</strong> Güvenlik izleme ve sorun giderme amacıyla 24 aya kadar.</li>
+          </ul>
+          <p>Kişisel verilerinizi yukarıda belirtilen sürelerin ötesinde; yasal yükümlülük, hukuki haklar, açık talebiniz veya teknik sınırlamalar gibi nedenlerle saklayabiliriz.</p>
+          <p>Saklama süreleri sona erdiğinde, Kişisel Verileri güvenli bir şekilde sileriz veya anonimleştiririz.</p>
+
+          <h3>Kişisel Verilerinizin Aktarımı</h3>
+          <p>Kişisel verileriniz de dahil olmak üzere bilgileriniz, Şirketin faaliyet gösterdiği ofislerde ve işleme dahil olan tarafların bulunduğu diğer yerlerde işlenmektedir. Bu, bu bilgilerin, veri koruma yasalarının sizin yargı bölgenizdeki yasalardan farklı olabileceği yerlerdeki bilgisayarlara aktarılabileceği ve bu bilgisayarlarda saklanabileceği anlamına gelir.</p>
+          <p>Şirket, verilerinizin güvenli bir şekilde ve bu Gizlilik Politikasına uygun olarak işlenmesini sağlamak için makul ölçüde gerekli tüm adımları atacaktır.</p>
+
+          <h3>Kişisel Verilerinizi Silin</h3>
+          <p>Topladığımız kişisel verilerinizi silme veya silme işleminde size yardımcı olmamızı talep etme hakkına sahipsiniz.</p>
+          <p>Hizmetimiz size, hizmet içinden hakkınızdaki belirli bilgileri silme olanağı sağlayabilir.</p>
+          <p>Hesabınız varsa, hesabınıza giriş yaparak ve kişisel bilgilerinizi yönetmenize olanak tanıyan hesap ayarları bölümünü ziyaret ederek bilgilerinizi istediğiniz zaman güncelleyebilir, değiştirebilir veya silebilirsiniz. Ayrıca, bize sağladığınız kişisel verilerinize erişmek, bunları düzeltmek veya silmek için bizimle iletişime geçebilirsiniz.</p>
+          <p>Ancak, yasal bir yükümlülüğümüz veya yasal bir dayanağımız olduğunda bazı bilgileri saklamamız gerekebileceğini lütfen unutmayın.</p>
+
+          <h3>Kişisel Verilerinizin Açıklanması</h3>
+          <h4>Ticari İşlemler</h4>
+          <p>Şirket bir birleşme, devralma veya varlık satışı işlemine dahil olursa, Kişisel Verileriniz aktarılabilir. Kişisel Verileriniz aktarılmadan ve farklı bir Gizlilik Politikasına tabi olmadan önce size bildirimde bulunacağız.</p>
+          <h4>Kanun uygulayıcılar</h4>
+          <p>Belirli durumlarda, Şirket, yasa gereği veya kamu otoritelerinin geçerli taleplerine yanıt olarak Kişisel Verilerinizi açıklamak zorunda kalabilir.</p>
+          <h4>Diğer yasal gereklilikler</h4>
+          <p>Şirket, aşağıdaki durumlarda gerekli olduğuna dair iyi niyetli bir inançla Kişisel Verilerinizi açıklayabilir:</p>
+          <ul>
+            <li>Yasal bir yükümlülüğe uymak</li>
+            <li>Şirketin haklarını veya mülkünü korumak ve savunmak</li>
+            <li>Hizmetle bağlantılı olası usulsüzlükleri önlemek veya araştırmak</li>
+            <li>Hizmet kullanıcılarının veya kamuoyunun kişisel güvenliğini korumak</li>
+            <li>Yasal sorumluluktan korunmak</li>
+          </ul>
+
+          <h3>Kişisel Verilerinizin Güvenliği</h3>
+          <p>Kişisel verilerinizin güvenliği bizim için önemlidir, ancak internet üzerinden yapılan hiçbir iletim yönteminin veya elektronik depolama yönteminin %100 güvenli olmadığını unutmayın. Kişisel verilerinizi korumak için ticari olarak makul yöntemler kullanmaya çalışsak da, mutlak güvenliğini garanti edemeyiz.</p>
+
+          <h3>Çocukların Gizliliği</h3>
+          <p>Hizmetimiz 16 yaşın altındaki kişilere yönelik değildir. 16 yaşın altındaki kişilerden bilerek kişisel olarak tanımlanabilir bilgiler toplamıyoruz. Eğer bir ebeveyn veya vasiyseniz ve çocuğunuzun bize Kişisel Veriler sağladığının farkındaysanız, lütfen bizimle iletişime geçin.</p>
+          <p>Ebeveyn izni doğrulaması olmadan 16 yaşın altındaki bir kişiden Kişisel Veriler topladığımızın farkına varırsak, bu bilgileri sunucularımızdan kaldırmak için gerekli adımları atarız.</p>
+          <p>Bilgilerinizi işlemek için yasal dayanak olarak rızaya ihtiyaç duyuyorsak ve ülkeniz ebeveyn rızası gerektiriyorsa, bu bilgileri toplamadan ve kullanmadan önce ebeveyninizin rızasını isteyebiliriz.</p>
+
+          <h3>Diğer Web Sitelerine Bağlantılar</h3>
+          <p>Hizmetimiz, tarafımızca işletilmeyen diğer web sitelerine bağlantılar içerebilir. Üçüncü taraf bir bağlantıya tıkladığınızda, o üçüncü tarafın sitesine yönlendirileceksiniz. Ziyaret ettiğiniz her sitenin Gizlilik Politikasını incelemenizi önemle tavsiye ederiz.</p>
+          <p>Üçüncü taraf sitelerin veya hizmetlerin içeriği, gizlilik politikaları veya uygulamaları üzerinde hiçbir kontrolümüz yoktur ve bunlardan hiçbir sorumluluk kabul etmiyoruz.</p>
+
+          <h3>Bu Gizlilik Politikası&apos;ndaki Değişiklikler</h3>
+          <p>Gizlilik Politikamızı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik olduğunda, yeni Gizlilik Politikamızı bu sayfada yayınlayarak sizi bilgilendireceğiz.</p>
+          <p>Değişiklik yürürlüğe girmeden önce sizi e-posta yoluyla ve/veya Hizmetimiz üzerinde belirgin bir bildirimle bilgilendireceğiz ve bu Gizlilik Politikası&apos;nın en üstündeki &quot;Son güncelleme&quot; tarihini güncelleyeceğiz.</p>
+          <p>Gizlilik Politikamızdaki değişiklikleri periyodik olarak gözden geçirmeniz önerilir. Gizlilik Politikamızdaki değişiklikler, bu sayfada yayınlandıkları anda yürürlüğe girer.</p>
+
+          <h3>Bize Ulaşın</h3>
+          <p>Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz varsa, bizimle iletişime geçebilirsiniz:</p>
+          <p><strong>E-posta ile:</strong> <a href="mailto:getnewbieapp@gmail.com">getnewbieapp@gmail.com</a></p>
+          <p><strong>Web sitemizdeki şu sayfayı ziyaret ederek:</strong> <a href="http://www.getnewbie.com" target="_blank" rel="noopener">http://www.getnewbie.com</a></p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© <span id="year"></span> Enes Berke Karaoğlan. Tüm hakları saklıdır.</p>
+      <p>Newbie</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var tabs = document.querySelectorAll('[role="tab"]');
+      var panels = document.querySelectorAll('[role="tabpanel"]');
+
+      function setActive(activeId) {
+        var isYasal = activeId === 'tab-yasal';
+        tabs.forEach(function (t) { t.setAttribute('aria-selected', t.id === activeId ? 'true' : 'false'); });
+        panels.forEach(function (p) {
+          var show = p.id === 'panel-yasal' ? isYasal : !isYasal;
+          p.classList.toggle('active', show);
+        });
+        history.replaceState(null, '', '#' + (isYasal ? 'yasal-metinler' : 'hakkinda'));
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () { setActive(this.id); });
+        tab.addEventListener('keydown', function (e) {
+          var idx = Array.prototype.indexOf.call(tabs, this);
+          if (e.key === 'ArrowRight' && idx < tabs.length - 1) { tabs[idx + 1].focus(); e.preventDefault(); }
+          if (e.key === 'ArrowLeft' && idx > 0) { tabs[idx - 1].focus(); e.preventDefault(); }
+        });
+      });
+
+      if (window.location.hash === '#yasal-metinler') setActive('tab-yasal');
+    })();
+  </script>
+</body>
+
+</html>
